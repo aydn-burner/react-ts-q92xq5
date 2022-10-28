@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { INavigationItemRoutes, setupRoutes } from '../../routes';
-import { NavigationItem } from './NavigationItem/NaviagtionItem';
+import { NavigationItem } from './NavigationItem';
 
 export function Navigation(): JSX.Element {
   const navList = setupRoutes;
@@ -15,8 +15,7 @@ export function Navigation(): JSX.Element {
     event.preventDefault();
     navigate(item.route);
   };
-
-  return (
+  const body = (
     <div className="ap-navigation-demo-wrapper">
       <NavigationItem
         width={280}
@@ -28,4 +27,5 @@ export function Navigation(): JSX.Element {
       />
     </div>
   );
+  return body;
 }

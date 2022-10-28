@@ -18,7 +18,7 @@ export interface NavigationProps
   hasHeader?: boolean;
 }
 
-const NavigationItem = React.forwardRef<HTMLElement, NavigationProps>(
+export const NavigationItem = React.forwardRef<HTMLElement, NavigationProps>(
   (
     {
       solid = false,
@@ -99,5 +99,3 @@ const NavigationItem = React.forwardRef<HTMLElement, NavigationProps>(
 );
 
 NavigationItem.displayName = 'NavigationItem';
-
-export default NavigationItem;
