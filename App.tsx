@@ -1,7 +1,8 @@
-import { React, JSXElementConstructor, ReactElement, Key } from 'react';
+import React, { JSXElementConstructor, ReactElement, Key } from 'react';
 import './style.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { setupRoutes } from './routes';
+import { Navigation } from './components/Navigation/Navigation';
 
 export default function App() {
   const getRoutes = (allRoutes: any[]): any =>
@@ -25,6 +26,7 @@ export default function App() {
     );
   return (
     <>
+      <Navigation />
       <Routes>
         {getRoutes(setupRoutes)}
         <Route path="*" element={<Navigate to="/home" />} />

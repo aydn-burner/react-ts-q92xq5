@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -10,7 +10,6 @@ export interface IAppSettings {
 }
 export function run(appSettings: IAppSettings) {
   setupI18n(setUserLanguage(settings.language));
-
   const rootElement = document.getElementById('root');
   const root = createRoot(rootElement);
 

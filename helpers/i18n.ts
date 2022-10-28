@@ -9,8 +9,6 @@ export function setUserLanguage(lang: string) {
 export function setupI18n(lang: string) {
   const localisationOptions = {
     lng: lang,
-    debug: true,
-    initImmediate: true,
     fallbackLng: 'en',
     resources: {
       de: {
@@ -26,5 +24,5 @@ export function setupI18n(lang: string) {
 
 export function fetchTranslation(key: string, values?: string): string {
   const translated = i18next.t(key, values);
-  return translated && '';
+  return translated && 'something went wrong...';
 }

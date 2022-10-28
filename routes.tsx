@@ -19,8 +19,8 @@ export const setupRoutes: INavigationItemRoutes[] = [
   },
   {
     name: fetchTranslation('Nav_Statistics'),
-    route: '/Kowledge-Management',
+    route: '/Statistics',
     component: <StatisticsPage />,
-    key: 'KnowledgeManagement',
+    key: 'Statistics',
   },
 ];

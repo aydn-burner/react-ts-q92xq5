@@ -1,3 +1,4 @@
+import React from 'react';
 import { fetchTranslation } from '../../helpers/i18n';
 
 export function HomePage(): JSX.Element {

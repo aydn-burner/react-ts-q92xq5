@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { fetchTranslation } from '../../helpers/i18n';
 
 export function StatisticsPage(): JSX.Element {
