@@ -12,13 +12,13 @@ export interface INavigationItemRoutes {
 
 export const setupRoutes: INavigationItemRoutes[] = [
   {
-    name: fetchTranslation('Nav_KnowledgeManagement'),
+    name: 'hi',
     route: '/home',
     component: <HomePage />,
     key: 'home',
   },
   {
-    name: fetchTranslation('Nav_Statistics'),
+    name: 'bye',
     route: '/Statistics',
     component: <StatisticsPage />,
     key: 'Statistics',

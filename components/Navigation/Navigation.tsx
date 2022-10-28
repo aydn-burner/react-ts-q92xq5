@@ -4,6 +4,7 @@ import { INavigationItemRoutes, setupRoutes } from '../../routes';
 import { NavigationItem } from './NavigationItem';
 
 export function Navigation(): JSX.Element {
+  console.log(setupRoutes);
   const navList = setupRoutes;
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = React.useState(false);
@@ -15,7 +16,8 @@ export function Navigation(): JSX.Element {
     event.preventDefault();
     navigate(item.route);
   };
-  const body = (
+
+  return (
     <div className="ap-navigation-demo-wrapper">
       <NavigationItem
         width={280}
@@ -23,9 +25,8 @@ export function Navigation(): JSX.Element {
         navList={navList}
         onClickItem={redirect}
         selectedIndex={0}
-        titleTemplate={() => '- '}
+        titleTemplate={() => 'Nav -'}
       />
     </div>
   );
-  return body;
 }

@@ -6,16 +6,29 @@ export interface NavigationItem {
   suffixIcon?: string;
 }
 
-export interface NavigationProps
-  extends Omit<React.HTMLAttributes<HTMLElement>, 'role'> {
+export interface NavigationProps {
+  solid?: boolean;
+  selectedIndex?: number;
+  onClickCollapseEvent?: (
+    collapse: boolean,
+    event: React.MouseEvent<HTMLElement>
+  ) => void;
   onClickItem?: (
     event: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
     index: number
   ) => void;
+  onClickLogo?: (event: React.MouseEvent<HTMLElement>) => void;
+  hasLogo?: boolean;
+  role?: string;
+  width?: number;
   navList?: any[];
+  ariaLabel?: string;
   titleTemplate?: () => React.ReactNode;
+  userTemplate?: () => React.ReactNode;
   className?: string;
+  collapsed?: boolean;
   hasHeader?: boolean;
+  defaultCollapsed?: boolean;
 }
 
 export const NavigationItem = React.forwardRef<HTMLElement, NavigationProps>(
@@ -34,7 +47,6 @@ export const NavigationItem = React.forwardRef<HTMLElement, NavigationProps>(
       titleTemplate,
       userTemplate,
       className,
-      style,
       collapsed: collapsedProp,
       hasHeader = true,
       defaultCollapsed,
@@ -45,6 +57,8 @@ export const NavigationItem = React.forwardRef<HTMLElement, NavigationProps>(
 
     const tempWidthRef = React.useRef<number>(width);
 
+    const classes = '';
+
     const onClick = (
       event: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>,
       index: number
@@ -52,8 +66,12 @@ export const NavigationItem = React.forwardRef<HTMLElement, NavigationProps>(
       onClickItem?.(event, index);
     };
 
+    React.useEffect(() => {
+      const nav = navRef.current! as HTMLElement;
+    }, []);
+
     return (
-      <nav>
+      <nav className={classes} aria-label={ariaLabel}>
         {hasHeader && (
           <div className="ap-navigation-heading">
             <div className="ap-navigation-title-wrapper">
@@ -89,9 +107,13 @@ export const NavigationItem = React.forwardRef<HTMLElement, NavigationProps>(
                       ></span>
                     )}
                   </div>
+                  {<span className="itemContent">{navItem.name}</span>}
                 </div>
               );
             })}
+        </div>
+        <div className="ap-navigation-footer">
+          <div className="ap-navigation-item collapsed-item"></div>
         </div>
       </nav>
     );
