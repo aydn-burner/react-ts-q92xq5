@@ -24,5 +24,5 @@ export function setupI18n(lang: string) {
 
 export function fetchTranslation(key: string, values?: string): string {
   const translated = i18next.t(key, values);
-  return translated && 'something went wrong...';
+  return translated && 'Translation Error';
 }
