@@ -4,7 +4,6 @@ import { INavigationItemRoutes, setupRoutes } from '../../routes';
 import { NavigationItem } from './NavigationItem';
 
 export function Navigation(): JSX.Element {
-  console.log(setupRoutes);
   const navList = setupRoutes;
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = React.useState(false);
