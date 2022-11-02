@@ -1,8 +1,10 @@
 import React = require('react');
+import { render, screen } from "@testing-library/react"
 import { fetchTranslation } from '../helpers';
 import { HomePage } from '../pages/Home';
 import { StatisticsPage } from '../pages/Statistics';
 import { INavigationItemRoutes } from '../routes';
+import App from '../App';
 
 const truth: INavigationItemRoutes[] = [
   {
@@ -20,6 +22,7 @@ const truth: INavigationItemRoutes[] = [
 ];
 
 test('setting up routes with dynamic names', () => {
+  render(<App/>);
   const routes: INavigationItemRoutes[] = [
     {
       name: fetchTranslation('Home'),
@@ -35,4 +38,5 @@ test('setting up routes with dynamic names', () => {
     },
   ];
   expect(routes).toEqual(truth);
+  screen.logTestingPlaygroundURL();
 })
