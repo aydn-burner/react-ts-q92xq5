@@ -1,4 +1,5 @@
-import React, { JSXElementConstructor, ReactElement, Key } from 'react';
+import React = require('react');
+import { JSXElementConstructor, ReactElement, Key } from 'react';
 import './style.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { setupRoutes } from './routes';
@@ -25,12 +26,12 @@ export default function App() {
       }
     );
   return (
-    <>
+    <div>
       <Navigation />
       <Routes>
         {getRoutes(setupRoutes)}
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
-    </>
+    </div>
   );
 }

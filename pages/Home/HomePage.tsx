@@ -1,13 +1,10 @@
-import React from 'react';
+import React = require('react');
 import { fetchTranslation } from '../../helpers/i18n';
 
 export function HomePage(): JSX.Element {
-  const body = (
-    <div>
-      <p>
-        {fetchTranslation('Hello_World')} - {fetchTranslation('Nav_Home')}
-      </p>
-    </div>
+  return (
+    <p>
+      {fetchTranslation('Hello_World')} - {fetchTranslation('Nav_Home')}
+    </p>
   );
-  return body;
 }
